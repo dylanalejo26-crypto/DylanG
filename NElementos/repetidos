@@ -1,0 +1,13 @@
+import random
+
+n = int(input("Ingrese la cantidad de elementos: "))
+
+arreglo = []
+while len(arreglo) < n:
+    num = random.randint(0, 99)
+    if num in arreglo:
+        print("El número", num, "ya está en el arreglo")
+    else:
+        arreglo.append(num)
+
+print("Arreglo sin repetidos:", arreglo)

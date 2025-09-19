@@ -1,0 +1,11 @@
+n = int(input("Ingrese la cantidad de términos de Fibonacci: "))
+
+fibonacci = []
+a, b = 0, 1
+for i in range(n):
+    fibonacci.append(a)
+    temp = a + b
+    a = b
+    b = temp
+
+print("Serie de Fibonacci:", fibonacci)

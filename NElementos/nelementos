@@ -1,0 +1,123 @@
+import random
+
+n = int(input("Ingrese la cantidad de elementos: "))
+
+
+arreglo = []
+for i in range(n):
+    num = random.randint(0, 99) 
+    arreglo.append(num)
+
+opcion = -1
+while opcion != 0:
+    print("\n--- MENÚ ---")
+    print("1. Imprimir arreglo original")
+    print("2. Suma")
+    print("3. Promedio")
+    print("4. Mayor")
+    print("5. Menor")
+    print("6. Ordenar ascendente")
+    print("7. Ordenar descendente")
+    print("8. Moda")
+    print("9. Mediana")
+    print("10. Buscar un número")
+    print("0. Salir")
+
+    opcion = int(input("Elija una opción: "))
+
+    if opcion == 1:
+        print("Arreglo:", arreglo)
+
+    elif opcion == 2:
+        suma = 0
+        for i in arreglo:
+            suma += i
+        print("La suma es:", suma)
+
+    elif opcion == 3:
+        suma = 0
+        for i in arreglo:
+            suma += i
+        promedio = suma / n
+        print("El promedio es:", promedio)
+
+    elif opcion == 4:
+        mayor = arreglo[0]
+        for i in arreglo:
+            if i > mayor:
+                mayor = i
+        print("El mayor es:", mayor)
+
+    elif opcion == 5:
+        menor = arreglo[0]
+        for i in arreglo:
+            if i < menor:
+                menor = i
+        print("El menor es:", menor)
+
+    elif opcion == 6:
+        asc = arreglo[:] 
+        for i in range(len(asc) - 1):
+            for j in range(len(asc) - 1 - i):
+                if asc[j] > asc[j + 1]:
+                    temp = asc[j]
+                    asc[j] = asc[j + 1]
+                    asc[j + 1] = temp
+        print("Ascendente:", asc)
+
+    elif opcion == 7:
+        desc = arreglo[:]
+        
+        for i in range(len(desc) - 1):
+            for j in range(len(desc) - 1 - i):
+                if desc[j] < desc[j + 1]:
+                    temp = desc[j]
+                    desc[j] = desc[j + 1]
+                    desc[j + 1] = temp
+        print("Descendente:", desc)
+
+    elif opcion == 8:
+        moda = arreglo[0]
+        max_rep = 0
+        for i in arreglo:
+            rep = 0
+            for j in arreglo:
+                if i == j:
+                    rep += 1
+            if rep > max_rep:
+                max_rep = rep
+                moda = i
+        print("La moda es:", moda, "(aparece", max_rep, "veces)")
+
+    elif opcion == 9:
+        copia = arreglo[:]
+        
+        for i in range(len(copia) - 1):
+            for j in range(len(copia) - 1 - i):
+                if copia[j] > copia[j + 1]:
+                    temp = copia[j]
+                    copia[j] = copia[j + 1]
+                    copia[j + 1] = temp
+        
+        if len(copia) % 2 == 0:
+            mediana = (copia[len(copia)//2 - 1] + copia[len(copia)//2]) / 2
+        else:
+            mediana = copia[len(copia)//2]
+        print("La mediana es:", mediana)
+
+    elif opcion == 10:
+        buscar = int(input("Número a buscar: "))
+        posiciones = []
+        for i in range(len(arreglo)):
+            if arreglo[i] == buscar:
+                posiciones.append(i)
+        if len(posiciones) > 0:
+            print("El número aparece", len(posiciones), "veces en posiciones:", posiciones)
+        else:
+            print("No se encontró el número")
+
+    elif opcion == 0:
+        print("Saliendo...")
+
+    else:
+        print("Opción no válida")
