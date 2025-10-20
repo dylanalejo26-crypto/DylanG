@@ -1,0 +1,88 @@
+import random
+
+n = int(input("Ingrese la cantidad de elementos: "))
+
+
+a = []
+b = []
+for i in range(n):
+    a.append(random.randint(0, 99))
+    b.append(random.randint(0, 99))
+
+print("Arreglo A:", a)
+print("Arreglo B:", b)
+
+
+suma_a = 0
+suma_b = 0
+for i in a:
+    suma_a += i
+for j in b:
+    suma_b += j
+if suma_a > suma_b:
+    print("Arreglo A tiene la suma más alta:", suma_a)
+else:
+    print("Arreglo B tiene la suma más alta:", suma_b)
+
+
+mayor_a = a[0]
+for i in a:
+    if i > mayor_a:
+        mayor_a = i
+mayor_b = b[0]
+for j in b:
+    if j > mayor_b:
+        mayor_b = j
+if mayor_a > mayor_b:
+    print("Arreglo A tiene el número mayor:", mayor_a)
+else:
+    print("Arreglo B tiene el número mayor:", mayor_b)
+
+
+menor_a = a[0]
+for i in a:
+    if i < menor_a:
+        menor_a = i
+menor_b = b[0]
+for j in b:
+    if j < menor_b:
+        menor_b = j
+if menor_a < menor_b:
+    print("Arreglo A tiene el número menor:", menor_a)
+else:
+    print("Arreglo B tiene el número menor:", menor_b)
+
+
+total = a + b
+suma_total = 0
+for i in total:
+    suma_total += i
+prom_conjunto = suma_total / len(total)
+print("El promedio conjunto es:", prom_conjunto)
+
+
+prom_a = suma_a / len(a)
+prom_b = suma_b / len(b)
+print("Promedio A:", prom_a, "=>", "Encima" if prom_a > prom_conjunto else "Debajo")
+print("Promedio B:", prom_b, "=>", "Encima" if prom_b > prom_conjunto else "Debajo")
+
+
+pares_a = 0
+pares_b = 0
+for i in a:
+    if i % 2 == 0:
+        pares_a += 1
+for j in b:
+    if j % 2 == 0:
+        pares_b += 1
+if pares_a > pares_b:
+    print("Arreglo A tiene más pares")
+else:
+    print("Arreglo B tiene más pares")
+
+impares_a = len(a) - pares_a
+impares_b = len(b) - pares_b
+if impares_a > impares_b:
+    print("Arreglo A tiene más impares")
+else:
+    print("Arreglo B tiene más impares")
